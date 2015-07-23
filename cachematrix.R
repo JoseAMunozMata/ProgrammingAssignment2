@@ -7,16 +7,16 @@
 ## of the possibility to create and store the calculated inverse matrix in cache.
 
 ## In case the matrix changed from previouly inverted, the new inverse matrix is calculated
-## and stored in cache.
+## and stored in cache for further retrieval.
 
 
 
 ## makeCacheMatrix function creates a special "matrix" object that can cache 
-## the inverse of the matrix passed as argument in the function
+## the inverse of the matrix passed as argument in the function.
 
 makeCacheMatrix <- function(x = matrix()) {
 	
-	## Calculate and store the inverse of x in cache 
+	## Calculate the inverse of x and store it in cache 
 
 	matriz <- x 
 	set <- function(y) {
@@ -33,11 +33,12 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 
-## cacheSolve function computes the inverse of the special "matrix" object returned by makeCacheMatrix above. 
-## If the inverse has already been calculated and the matrix has not changed, 
-## then the cacheSolve function retrieve the inverse from the cache.
-## Otherwise, the inverse matrix of the one passed as argument 
-## in makeCacheMatrix function is calculated and stored in cache.
+## cacheSolve function returns the inverses matrix stored in the special "matrix" object 
+## returned by makeCacheMatrix above. 
+## If the inverse has already been calculated and the matrix passed as argument in makecacheMatrix
+## has not changed, then the cacheSolve function retrieve the inverse from the cache.
+## Otherwise, the inverse matrix of the new/changed matrix passed as argument 
+## in makeCacheMatrix function is calculated and stored in cache for further retrieval.
 
 cacheSolve <- function(x, ...) {
       
